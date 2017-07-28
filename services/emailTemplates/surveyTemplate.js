@@ -9,13 +9,15 @@ module.exports = survey => {
           <p>Please answer the following question:</p>
           <p>${survey.body}</p>
           <div>
-            <a href="${keys.redirectDomain}">Yes</a>
+            <a href="${keys.redirectDomain}/api/complete">Yes</a>
           </div>
           <div>
-            <a href="${keys.redirectDomain}">No</a>
+            <a href="${keys.redirectDomain}/api/complete">No</a>
           </div>
         </div>
       </body>
     </html>
   `;
 };
+
+// NEED TO FIX THE REDIRECT API COMPLETE DONT WORK
