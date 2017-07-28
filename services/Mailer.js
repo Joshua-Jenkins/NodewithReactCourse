@@ -7,10 +7,9 @@ class Mailer extends helper.Mail {
     super();
 
     this.sgApi = sendgrid(keys.sendGridKey);
-
     this.from_email = new helper.Email('no-reply@emaily.com');
     this.subject = subject;
-    this.body = new help.Content('text/html', content);
+    this.body = new helper.Content('text/html', content);
     this.recipients = this.formatAddresses(recipients);
 
     this.addContent(this.body);
@@ -42,13 +41,13 @@ class Mailer extends helper.Mail {
   }
 
   async send() {
-    const request = this.sgApi.emtpyREquest({
+    const request = this.sgApi.emptyRequest({
       method: 'POST',
       path: '/v3/mail/send',
       body: this.toJSON()
     });
     // this is what sends to sendgrid API!
-    const response = this.sgApi.API(request);
+    const response = await this.sgApi.API(request);
     return response;
   }
 }
